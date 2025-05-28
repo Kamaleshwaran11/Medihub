@@ -1,8 +1,10 @@
 package com.medihub.model;
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="doctors")
+@NoArgsConstructor
 public class Doctor {
 
     @Id
@@ -12,6 +14,7 @@ public class Doctor {
     private String specialization;
     private String phone;
     private String email;
+    private String password;
 
     public Doctor(String name, String specialization, String phone, String email) {
         this.name = name;
@@ -54,5 +57,11 @@ public class Doctor {
     public void setEmail(String email) {
         this.email = email;
     }
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Module - MediHub</title>
+    
+    <link href="doctors.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div>
+            <h1 style="display:inline;">MediHub Doctor</h1>
+        </div>
+        <nav>
+            <a href="#" id="nav-dashboard">Dashboard</a>
+            <a href="#" id="nav-profile">Profile</a>
+            <a href="#" id="nav-appointments">Appointments</a>
+            <a href="#" id="nav-patients">Patients</a>
+            <a href="#" id="nav-ehr">EHR</a>
+            <a href="#" id="nav-prescriptions">Prescriptions</a>
+            <a href="#" id="nav-logout" class="logout">Logout</a>
+        </nav>
+    </header>
+    <main>
+        
+  <h1>Doctor List</h1>
+  <button id="loadBtn">Load Doctors</button>
+  <ul id="doctorList"></ul>
+
+
+
+        <!-- Registration/Login -->
+        <section id="auth-section">
+            <h2 id="auth-title">Doctor Login</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <input type="submit" value="Login">
+            </form>
+            <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
+            <form id="register-form" class="hidden">
+                <input type="text" id="reg-name" placeholder="Full Name" required>
+                <input type="email" id="reg-email" placeholder="Email" required>
+                <input type="password" id="reg-password" placeholder="Password" required>
+                <input type="text" id="reg-specialization" placeholder="Specialization" required>
+                <input type="submit" value="Register">
+            </form>
+            <p id="auth-msg" style="color:#d32f2f;"></p>
+        </section>
+
+        <!-- Dashboard Overview -->
+        <section id="dashboard-section" class="hidden">
+            <h2>Dashboard Overview</h2>
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3 id="card-appointments">0</h3>
+                    <p>Appointments</p>
+                </div>
+                <div class="card">
+                    <h3 id="card-patients">0</h3>
+                    <p>Patients</p>
+                </div>
+                <div class="card">
+                    <h3 id="card-prescriptions">0</h3>
+                    <p>Prescriptions</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Management -->
+        <section id="profile-section" class="hidden">
+            <h2>My Profile</h2>
+            <div id="doctor-profile"></div>
+            <button id="edit-profile-btn">Edit Profile</button>
+            <form id="edit-profile-form" class="hidden">
+                <input type="text" id="edit-name" required>
+                <input type="email" id="edit-email" required>
+                <input type="text" id="edit-specialization" required>
+                <input type="submit" value="Save">
+                <button type="button" id="cancel-edit-profile">Cancel</button>
+            </form>
+        </section>
+
+        <!-- Appointment Scheduling -->
+        <section id="appointments-section" class="hidden">
+            <h2>My Appointments</h2>
+            <table id="appointments-table">
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Appointments will be loaded here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Patient Assignment -->
+        <section id="patients-section" class="hidden">
+            <h2>My Patients</h2>
+            <ul id="patients-list"></ul>
+            <h3>Assign Patient</h3>
+            <form id="assign-patient-form">
+                <input type="text" id="assign-patient-name" placeholder="Patient Name" required>
+                <input type="email" id="assign-patient-email" placeholder="Patient Email" required>
+                <input type="submit" value="Assign">
+            </form>
+        </section>
+
+        <!-- EHR Access -->
+        <section id="ehr-section" class="hidden">
+            <h2>Electronic Health Records (EHR)</h2>
+            <form id="ehr-search-form">
+                <input type="email" id="ehr-patient-email" placeholder="Patient Email" required>
+                <input type="submit" value="View EHR">
+            </form>
+            <div id="ehr-details"></div>
+        </section>
+
+        <!-- Prescription Management -->
+        <section id="prescriptions-section" class="hidden">
+            <h2>Prescriptions</h2>
+            <form id="add-prescription-form">
+                <input type="email" id="presc-patient-email" placeholder="Patient Email" required>
+                <input type="text" id="presc-medicine" placeholder="Medicine" required>
+                <input type="text" id="presc-dosage" placeholder="Dosage" required>
+                <input type="submit" value="Add Prescription">
+            </form>
+            <ul id="prescriptions-list"></ul>
+        </section>
+    </main>
+    <script src="doctors.js"></script>
+</body>
+</html>
